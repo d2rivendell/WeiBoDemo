@@ -1,5 +1,5 @@
 # SimultaneousTest
 
 ### 效果如下：
-![scroll](https://github.com/LeonHwa/SimultaneousTest/blob/master/screenShot/0014936254280002267b8a548574e3095955a0d72947e92.gif)
-![animate](https://github.com/LeonHwa/SimultaneousTest/blob/master/screenShot/0014936255850000b8dde91417340d6a0a144b84b7f7d4d.gif)
+![scroll](http://upload-images.jianshu.io/upload_images/4838624-a4b73324bfd49e2d.gif?imageMogr2/auto-orient/strip)
+![animate](http://upload-images.jianshu.io/upload_images/4838624-3c960a955c64d620.gif?imageMogr2/auto-orient/strip)
