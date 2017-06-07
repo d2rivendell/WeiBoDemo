@@ -40,15 +40,13 @@
         PhotoView *photoView = [[PhotoView alloc] init];
         _tabView = [[LHTabView alloc] initWithItemsName:@[@"主页",@"微博",@"视频",@"相册"] childrenView:@[mainView,weiboView,videoView,photoView]];
         [self.contentView addSubview:_tabView];
-        __weak typeof(self) weakSelf = self;
-        [_tabView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(weakSelf.mas_left);
-            make.right.equalTo(weakSelf.mas_right);
-            make.top.equalTo(weakSelf.mas_top);
-            make.bottom.equalTo(weakSelf.mas_bottom);
-        }];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.tabView.frame = self.bounds;
 }
 @end

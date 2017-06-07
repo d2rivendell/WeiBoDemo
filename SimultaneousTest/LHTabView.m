@@ -36,11 +36,9 @@
             ItemBaseView *itemView = childrenView[i];
             [itemView renderWithIndex:i];
             [_itemContainer addSubview:itemView];
-           
         }
                 __weak typeof(self) weakSelf= self;
         _titleView.selectRow = ^(NSInteger row){
-             NSLog(@"%ld",row);
             [weakSelf.itemContainer setContentOffset:CGPointMake(WIDTH * row, 0)];
         };
         self.delegate = _titleView;

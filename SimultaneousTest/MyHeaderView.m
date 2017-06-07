@@ -21,23 +21,16 @@
         self.backgroundColor = [UIColor clearColor];
         _avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar"]];
         [self addSubview:_avatarView];
-        [self autoLayout];
-        
+        self.avatarView.layer.cornerRadius = 25;
+        self.avatarView.clipsToBounds = YES;
     }
     return self;
 }
 
-- (void)autoLayout{
-    __weak typeof(self) weakSelf = self;
- [self.avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-     make.centerX.equalTo(weakSelf.mas_centerX);
-     make.centerY.equalTo(weakSelf.mas_centerY).offset(-20);
-     make.width.equalTo(@50);
-     make.height.equalTo(@50);
 
- }];
-  self.avatarView.layer.cornerRadius = 25;
-  self.avatarView.clipsToBounds = YES;
+- (void)layoutSubviews{
+    [super layoutSubviews];
+     self.avatarView.frame = CGRectMake((self.width - 50)/2, (self.height - 50)/2, 50, 50);
 
 }
 @end

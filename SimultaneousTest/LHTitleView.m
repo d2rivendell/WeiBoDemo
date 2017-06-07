@@ -116,43 +116,28 @@ const CGFloat titleWidth = 32;
     
     CGFloat nextStart =  [self.pointsDict[@(index+1)][@"start"] floatValue];
     CGFloat nextEnd =  [self.pointsDict[@(index+1)][@"end"] floatValue];
-    
-   
-    
     CGFloat PhysicsDelta = offsetX - index * WIDTH;
-    
-//    CGFloat delta = nextStart - currentEnd;
-//    
-//    delta = (PhysicsDelta/WIDTH) * delta;
-//    
     CGFloat end,start;
     CGFloat delta = nextEnd - currentEnd;
     if(PhysicsDelta <= WIDTH/2){
         delta = (PhysicsDelta/(WIDTH/2)) * delta;
         end = currentEnd + delta;
-//          NSLog(@"index=%ld  currentEnd = %f  eee = %f",index,currentEnd,(currentEnd - zero));
-        
         self.lineLayer.strokeStart = (currentStart - zero)/self.lineTotalWidth;
         self.lineLayer.strokeEnd = (end - zero)/self.lineTotalWidth;
     }else{
         delta = nextStart - currentStart;
         PhysicsDelta = PhysicsDelta - WIDTH/2;
-        
         delta = (PhysicsDelta/(WIDTH/2)) * delta;
         start = currentStart + delta;
-        NSLog(@"index=%ld  start=%f   end=%f",index,(start - zero),(nextEnd - zero))
         self.lineLayer.strokeStart = (start - zero)/self.lineTotalWidth;
         self.lineLayer.strokeEnd = (nextEnd - zero)/self.lineTotalWidth;
     }
-    
-
 }
 - (void)LHTabViewDidEndDecelerating:(LHTabView *)tabView{
     CGFloat offsetX = tabView.offset.x;
     NSInteger index = offsetX/WIDTH;
    [self layoutLineWithIndex:index];
 }
-
 - (void)layoutLineWithIndex:(NSInteger)index{
     CGFloat zero =  [self.pointsDict[@(0)][@"start"] floatValue];
     CGFloat start =  [self.pointsDict[@(index)][@"start"] floatValue];
